@@ -4,33 +4,6 @@ valeurs = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26", "$0
 
 
 
-
-
-
-
-
-
-def dollar
-
-end
-
-def maxxi
-	maxx = @my_hash.first[0]
-	@my_hash.each do |key, val|
-		#puts key + val
-		puts val  * 3
-		# if val > @my_hash[maxx]
-		# 	maxx = key
-		# 	return maxx
-		# end
-	end
-	puts maxx
-end
-# @my_hash.each do |key, val|
-# 	puts key + " : " + val 
-# 
-
-
 def crypto_high (hash)
 	max_crypto = hash.first[0]
 	hash.each do |key,val|
@@ -38,7 +11,7 @@ def crypto_high (hash)
 			max_crypto = key
 		end
 	end
-	puts max_crypto
+	return max_crypto
 end
 
 def crypto_min (hash)
@@ -48,7 +21,7 @@ def crypto_min (hash)
 			min_crypto = key
 		end
 	end
-	puts min_crypto
+	return min_crypto
 end
 
 def coin (hash)
@@ -59,29 +32,66 @@ def coin (hash)
 			count += 1
 		end
 	end
-	puts count
+	return count
 end
 
+def six(hash)
+	new_six = {}
+
+	hash.each do |key, val|
+		if val < 6000
+			new_six[key] = val
+		end
+	end
+	return new_six
+end
 
 
 def perform (money_array, value_array)
 
-#
 	my_hash = Hash[money_array.zip(value_array)]
 
 	my_hash.each do |key, val|
-	val[0] = ""
-	my_hash[key] = val.to_f
+		val[0] = ""
+		my_hash[key] = val.to_f
 	end
 
-crypto_high(my_hash)
-crypto_min(my_hash)
-coin(my_hash)
 
-
-	#@my_hash.each do |key, val|
-	#puts key + ' : ' + val
-	#end
+	puts "<<<<<<<<<<Hello my friend! Que veux tu savoir sur les cryptomonnaies?>>>>>>>>>>"
+	puts "1. Quelle est la cryptomonnaie avec la valeur la plus élevée?"
+	puts "2. Quelle est la cryptomonnaie avec la valeur la moins élevée?"
+	puts "3. Combien de cryptomonnaie contiennent le mot coin?"
+	puts "4. Toutes les devises dont la valeur est inférieure à $6000?"
+	puts "5. Quelle est la crytomonnaie la plus haute dont la valeur est inferieure à $6000?"
+	puts "6. Quitter le programme"
+	puts ""
+	puts "Votre choix :"
+	puts ""
+	puts ""
+	print ">>"
+	choice = gets.chomp.to_i
+	puts ""
+	puts ""
+	puts ""
+	 
+		
+		if choice == 1
+			puts crypto_high(my_hash)	
+		elsif choice == 2
+			puts crypto_min(my_hash)
+		elsif choice == 3
+			puts coin(my_hash)
+		elsif choice == 4
+			puts six(my_hash)
+		elsif choice == 5
+			puts crypto_high(six(my_hash))
+		elsif choice == 6
+			puts "Au revoir !!"
+			return 0
+		else
+			puts "Mauvaise entree"
+		end
 end
+
+
 perform(devises, valeurs)
-#puts array.sort_by{|order| order.downcase}
