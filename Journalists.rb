@@ -60,4 +60,17 @@ def underscore(array)
 	return count
 end
 
-puts underscore(ary)
+#puts underscore(ary)
+
+#7
+def alphabetical(array)
+	puts array.sort_by{|order| order.downcase}
+end
+
+#alphabetical(ary)
+
+
+
+
+
+
