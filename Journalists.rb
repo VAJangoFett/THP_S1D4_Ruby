@@ -4,13 +4,13 @@ def length(value)
 	puts "There are #{value.length} journalists."
 end
 
-# def integer(value)
-# 	puts "There are #{value.include?([0..9])} journalists with a number in their name."
-# end
 
-def interger(value)
-	line.scan(/\d+/).value
+def integer(value)
+		return value.count("0-9") > 0
 end
 
-length(ary)
+result = ary.select{|journalist| integer(journalist)}
+
+puts result.length
+
 
