@@ -8,4 +8,9 @@ end
 # 	puts "There are #{value.include?([0..9])} journalists with a number in their name."
 # end
 
+def interger(value)
+	line.scan(/\d+/).value
+end
+
+length(ary)
 
