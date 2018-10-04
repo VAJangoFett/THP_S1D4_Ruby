@@ -1,1 +1,1 @@
-Groupe_3 Montpellier Thierry/Arthur
+Groupe_3 Montpellier Thierry Delongueville / Arthur Vouloir
